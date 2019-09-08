@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>王乐进的个人空间</title>
+  <title>lejin&#39;s blog</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-08T01:26:41.446Z</updated>
+  <updated>2019-09-08T08:23:49.724Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,35 +17,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>中文</title>
-    <link href="http://yoursite.com/2019/09/08/test/"/>
-    <id>http://yoursite.com/2019/09/08/test/</id>
-    <published>2019-09-08T00:47:37.709Z</published>
-    <updated>2019-09-08T01:26:41.446Z</updated>
+    <title>将springboot项目部署到本地tomcat</title>
+    <link href="http://yoursite.com/2019/09/08/categories1/"/>
+    <id>http://yoursite.com/2019/09/08/categories1/</id>
+    <published>2019-09-08T08:02:49.000Z</published>
+    <updated>2019-09-08T08:23:49.724Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1 id="将springboot项目部署到本地tomcat"><a href="#将springboot项目部署到本地tomcat" class="headerlink" title="将springboot项目部署到本地tomcat"></a>将springboot项目部署到本地tomcat</h1><ol><li>将项目打包<a href="https://www.cnblogs.com/zscc/articles/9428466.html" target="_blank" rel="noopener">https://www.cnblogs.com/zscc/articles/9428466.html</a> （无需另外更改任何东西，自带tomcat微服务，java –jar 运行即可）</li><li>下载安装tomcat9(<a href="https://blog.csdn.net/qq_40881680/article/details/83582484" target="_blank" rel="noopener">https://blog.csdn.net/qq_40881680/article/details/83582484</a>)<br>a.(配置jdk8)<br>b.解压后，start.bat启动报java.net.BindException: Address already in use: JVM_Bind:（server.xml更改端口号为8686）<br>c.localhost:8686访问成功</li><li>将打包的文件放在webapp目录下新建一个项目名称（CitHub）</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;我有一头&lt;strong&gt;小毛驴&lt;/strong&gt;，可是我从来都不骑。&lt;/p&gt;
-&lt;/blockquote&gt;
-
+        &lt;h1 id=&quot;将springboot项目部署到本地tomcat&quot;&gt;&lt;a href=&quot;#将springboot项目部署到本地tomcat&quot; class=&quot;headerlink&quot; title=&quot;将springboot项目部署到本地tomcat&quot;&gt;&lt;/a&gt;将springboot项目部
       
     
     </summary>
     
+      <category term="后端" scheme="http://yoursite.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="springboot" scheme="http://yoursite.com/tags/springboot/"/>
+    
+      <category term="部署" scheme="http://yoursite.com/tags/%E9%83%A8%E7%BD%B2/"/>
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
     
   </entry>
   
   <entry>
-    <title>vfvvfffff</title>
+    <title>编写cithub碰到的问题</title>
+    <link href="http://yoursite.com/2019/09/08/categories2/"/>
+    <id>http://yoursite.com/2019/09/08/categories2/</id>
+    <published>2019-09-08T00:47:37.709Z</published>
+    <updated>2019-09-08T08:22:21.589Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="编写cithub碰到的问题"><a href="#编写cithub碰到的问题" class="headerlink" title="编写cithub碰到的问题"></a>编写cithub碰到的问题</h1><ol><li>question 1</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;编写cithub碰到的问题&quot;&gt;&lt;a href=&quot;#编写cithub碰到的问题&quot; class=&quot;headerlink&quot; title=&quot;编写cithub碰到的问题&quot;&gt;&lt;/a&gt;编写cithub碰到的问题&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;question 1&lt;/li&gt;
+&lt;/ol
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+      <category term="html" scheme="http://yoursite.com/tags/html/"/>
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>helloword</title>
     <link href="http://yoursite.com/2019/09/07/hello-world/"/>
     <id>http://yoursite.com/2019/09/07/hello-world/</id>
     <published>2019-09-07T13:48:59.184Z</published>
-    <updated>2019-09-08T01:26:41.445Z</updated>
+    <updated>2019-09-08T06:44:56.773Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
