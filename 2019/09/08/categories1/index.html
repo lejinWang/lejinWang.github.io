@@ -19,11 +19,11 @@
     <link rel="dns-prefetch" href="http://yoursite.com">
     <!--SEO-->
 
-<meta name="keywords" content="springboot,部署,windows">
+<meta name="keywords" content="springboot,部署,Centos7,docker">
 
 
-<meta name="description" content="将springboot项目部署到本地tomcat
-将项目打包https://www.cnblogs.com/zscc/articles/9428466.html （无需另外更改任何东西，自带to...">
+<meta name="description" content="如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？
+本文讲述本人在阿里云服务器（操作系统为Centos7）搭建CitHub系统环境的...">
 
 
 <meta name="robots" content="all">
@@ -34,7 +34,7 @@
 
 <title>
     
-    将springboot项目部署到本地tomcat |
+    如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？ |
     
     lejin&#39;s blog
 </title>
@@ -153,9 +153,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="将springboot项目部署到本地tomcat">
+        <h1 id="如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？">
             
-            将springboot项目部署到本地tomcat
+            如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？
             
         </h1>
         <div class="post-meta">
@@ -170,7 +170,7 @@
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-            <a class="tag-link" href="/tags/springboot/">springboot</a> <a class="tag-link" href="/tags/windows/">windows</a> <a class="tag-link" href="/tags/部署/">部署</a>
+            <a class="tag-link" href="/tags/Centos7/">Centos7</a> <a class="tag-link" href="/tags/docker/">docker</a> <a class="tag-link" href="/tags/springboot/">springboot</a> <a class="tag-link" href="/tags/部署/">部署</a>
             
         </span>
     </span>
@@ -195,7 +195,10 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="将springboot项目部署到本地tomcat"><a href="#将springboot项目部署到本地tomcat" class="headerlink" title="将springboot项目部署到本地tomcat"></a>将springboot项目部署到本地tomcat</h1><ol>
+        <h1 id="如何在Centos7搭建springboot-docker-redis-conductor-tomcat-环境？"><a href="#如何在Centos7搭建springboot-docker-redis-conductor-tomcat-环境？" class="headerlink" title="如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？"></a>如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？</h1><blockquote>
+<p>本文讲述本人在阿里云服务器（操作系统为Centos7）搭建CitHub系统环境的记录</p>
+</blockquote>
+<ol>
 <li>将项目打包<a href="https://www.cnblogs.com/zscc/articles/9428466.html" target="_blank" rel="noopener">https://www.cnblogs.com/zscc/articles/9428466.html</a> （无需另外更改任何东西，自带tomcat微服务，java –jar 运行即可）</li>
 <li>下载安装tomcat9(<a href="https://blog.csdn.net/qq_40881680/article/details/83582484" target="_blank" rel="noopener">https://blog.csdn.net/qq_40881680/article/details/83582484</a>)<br>a.(配置jdk8)<br>b.解压后，start.bat启动报java.net.BindException: Address already in use: JVM_Bind:（server.xml更改端口号为8686）<br>c.localhost:8686访问成功</li>
 <li>将打包的文件放在webapp目录下新建一个项目名称（CitHub）</li>
@@ -261,7 +264,7 @@ new Valine({
             文章目录
         </h3>
         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#将springboot项目部署到本地tomcat"><span class="toc-text">将springboot项目部署到本地tomcat</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在Centos7搭建springboot-docker-redis-conductor-tomcat-环境？"><span class="toc-text">如何在Centos7搭建springboot+docker+redis+conductor+tomcat 环境？</span></a></li></ol>
         
     </div>
 </aside>
