@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="lejin&#39;s blog">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.2.3">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="keywords" content="springboot,部署,Centos7,docker">
+
+
+<meta name="description" content="
+本文讲述本人在阿里云服务器（操作系统为Centos7）搭建CitHub系统环境的记录，旨在日后的温习以及后人参阅。
+
+
+1 环境搭建1.1 Centos7  Windows系统 下可利用虚拟机...">
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+<title>
+    
+    如何在Centos7搭建springboot+docker+mysql+redis+conductor+tomcat 环境？ |
+    
+    lejin&#39;s blog
+</title>
+
+<link rel="alternate" href="/atom.xml" title="lejin&#39;s blog" type="application/atom+xml">
+
+
+<link rel="icon" href="/favicon.ico">
+
+    
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<script>
+(function() {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+</head></html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    /./img/background.png)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='lejinwang'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">
+                        lejin&#39;s blog</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa fa-home"></i>
+                                首页</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="如何在Centos7搭建springboot+docker+mysql+redis+conductor+tomcat 环境？">
+            
+            如何在Centos7搭建springboot+docker+mysql+redis+conductor+tomcat 环境？
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a class="category-link" href="/categories/后端/">后端</a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+            <a class="tag-link" href="/tags/Centos7/">Centos7</a> <a class="tag-link" href="/tags/docker/">docker</a> <a class="tag-link" href="/tags/springboot/">springboot</a> <a class="tag-link" href="/tags/部署/">部署</a>
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2019/09/08</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <blockquote>
+<p>本文讲述本人在阿里云服务器（操作系统为Centos7）搭建CitHub系统环境的记录，旨在日后的温习以及后人参阅。</p>
+</blockquote>
+<!-- # 前期准备 -->
+<h2 id="1-环境搭建"><a href="#1-环境搭建" class="headerlink" title="1 环境搭建"></a>1 环境搭建</h2><h3 id="1-1-Centos7"><a href="#1-1-Centos7" class="headerlink" title="1.1 Centos7"></a>1.1 Centos7</h3><p>  <strong>Windows系统</strong> 下可利用虚拟机，例   如<font style="color: #ec7259;font-weight:bold">VMware</font>，本人在windows环境下测试CitHub系统时就是利用的VMware，至于具体的<font style="color: #ec7259;font-weight:bold">“如何在VMware安装Centos7系统VMware？”</font>请关注后续更新，这里就不展开了。</p>
+<p>  <strong>阿里云服务器</strong> 租用时可直接选择所安装 的系统，所以无需考虑Centos7系统的问题。</p>
+   <font style="color:Rgb(0,154,97);font-weight:520">注：下文环境搭建均是在阿里云服务器进行</font>
+
+<h3 id="1-2-docker配置"><a href="#1-2-docker配置" class="headerlink" title="1.2 docker配置"></a>1.2 docker配置</h3><p>  按步骤输入如下命令便可将docker安装</p>
+<ul>
+<li><p>Step 1: 安装必要的一些系统工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y yum-utils  device- mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 2: 添加软件源信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 3: 更新并安装Docker-CE</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum makecache fast</span><br><span class="line">sudo yum -y install docker-ce</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4: 开启Docker服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker star</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-3-mysql配置"><a href="#1-3-mysql配置" class="headerlink" title="1.3 mysql配置"></a>1.3 mysql配置</h3><ul>
+<li><p>Step 1:依次输入如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql</span><br><span class="line">yum install mysql-devel</span><br><span class="line">wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 2:重启mysql服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 3:设置编码<br>进入配置文件<code>Vi /etc/my.cnf</code>在末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line">Default-character-set =utf8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4:登录mysql（初次安装mysql时，root账户没有密码）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br></pre></td></tr></table></figure>
+<p>进入mysql操作窗口</p>
+</li>
+<li><p>Step 5:设置用户名密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; <span class="built_in">set</span> password <span class="keyword">for</span>   root@localhost = password(<span class="string">'123456'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 6:设置远程连接某个database</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; grant all privileges on ctest.* to gist@<span class="string">'%'</span> identified by <span class="string">'password'</span>;</span><br></pre></td></tr></table></figure>
+<p>&ensp;&ensp;&ensp;其中ctest是database名，ctest.* 表示可以访问databas名为ctest的所有table，gist表示用于远程连接的用户名。</p>
+</li>
+</ul>
+<h3 id="1-4-redis配置"><a href="#1-4-redis配置" class="headerlink" title="1.4 redis配置"></a>1.4 redis配置</h3><p>  可以参考这篇博客<a href="https://www.cnblogs.com/zuidongfeng/p/8032505.html" target="_blank" rel="noopener">CENTOS7下安装REDIS</a>，讲的很详细。下面主要是设置redis开机自启动</p>
+<ul>
+<li><p>Step 1:进入配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/redis-server.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 2:添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=The redis-server Process Manager</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/var/run/redis_6379.pid</span><br><span class="line">ExecStart=/usr/local/redis/redis-server /usr/local/redis/redis.conf         </span><br><span class="line">ExecReload=/bin/kill -USR2 $MAINPID</span><br><span class="line">ExecStop=/bin/kill -SIGINT $MAINPID</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 3:设置开机自启动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl start redis-server.service</span><br><span class="line">systemctl <span class="built_in">enable</span> redis-server.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4:检查是否安装成功</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -A|grep redis</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="1-5-jdk配置"><a href="#1-5-jdk配置" class="headerlink" title="1.5 jdk配置"></a>1.5 jdk配置</h3><ul>
+<li>Step 1:下载安装包<br>最好是访问<a href="https://www.oracle.com/java/technologies/javase-jsp-downloads.html" target="_blank" rel="noopener">官网</a>，注册登录之后可免费下载各个版本的安装包，注意选择<strong>Linux系统</strong>的安装包（本人选择的是<font color="rgb(163,145,191)">jdk-8u11-linux-x64.tar.gz</font>)</li>
+<li><p>Step 2:卸载centos原本自带的openjdk</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java</span><br></pre></td></tr></table></figure>
+<p>然后通过<code>rpm -e --nodeps code</code>  后面跟系统自带的jdk名    这个命令来删除系统自带的jdk，例如<code>rpm -e --nodeps java-1.8.0-openjdk-1.8.0.102-4.b14.el7.x86_64</code></p>
+</li>
+<li><p>Step 3:在/home目录下新建java目录，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4:将jdk安装包传到这个目录下<br>这里推荐一个传输工具<a href="http://www.pc6.com/softview/SoftView_69972.html" target="_blank" rel="noopener">ssh secure shell client</a>，通过ssh传输东西十分方便。</p>
+</li>
+<li><p>Step 5:解压压缩包（在该文件目录下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u11-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 6:配置环境<br><code>vi  /etc/profile</code>，在最后添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/home/java/jdk1.8.0_11</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib/rt.jar:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 7:生效配置<br>运行：<code>. /etc/profile</code>         点和/之间有个空格，然后<code>java -version</code> 查看是否成功输出版本信息。</p>
+</li>
+</ul>
+<h3 id="1-6-tomcat配置"><a href="#1-6-tomcat配置" class="headerlink" title="1.6 tomcat配置"></a>1.6 tomcat配置</h3><ul>
+<li>Step 1:下载tomcat安装包<br>去<a href="https://tomcat.apache.org/download-90.cgi" target="_blank" rel="noopener">tomcat官网下载</a>，选择Core类别下tar.gz包，本人选用的是<a href="https://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.24/bin/apache-tomcat-9.0.24.tar.gz" target="_blank" rel="noopener">apache-tomcat-9.0.24.tar.gz</a>。</li>
+<li>Step 2:将安装包上传到服务器<br>依然是通过<a href="http://www.pc6.com/softview/SoftView_69972.html" target="_blank" rel="noopener">ssh secure shell client</a>工具。</li>
+<li><p>Step 3:在tomcat目录下解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf apache-tomcat-9.0.24.tar.gz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 4:启动tomcat<br><code>/bin</code>目录下，执行命令 <code>./startup.sh</code></p>
+</li>
+<li>Add 1:关闭tomcat<br><code>/bin</code> 目录下执行命令<code>./shutdown</code><br>由于本人在关闭tomcat时发现有时候会出现tomcat无法完全关闭的情况，也就是关闭tomcat之后，再启动时出现端口被占用情况，为此我想到的解决办法是，通过查询tomcat端口所在进程号，通过进程号终止tomcat运行。例如我的tomcat占用的是默认端口号：8080，那么可以先通过<code>lsof -i:8080</code>得到PID（进程号），然后通过<code>kill -9 PID</code>结束进程。</li>
+<li>Add 2:更改tomcat端口号<br>只需修改conf目录下server.xml文件，将8080更改为你想设置的端口号，本人考虑到后续conductor服务所占端口正是8080，遂改为8686。 <font style="color:Rgb(0,154,97);font-weight:1">注：所设置的端口号，必须是阿里云所开放的端口号，阿里云开发的端口号可以通过控制台网络配置-&gt;配置规则进行设置</font>
+
+</li>
+</ul>
+<h3 id="1-7-conductor配置"><a href="#1-7-conductor配置" class="headerlink" title="1.7 conductor配置"></a>1.7 conductor配置</h3><ul>
+<li>Step 1:获取conductor运行包<br> 有三种方式具体可以看<a href="https://netflix.github.io/conductor/server/" target="_blank" rel="noopener">conductor官网介绍</a>。本人采用第二种方式也就是直接在<a href="https://repo1.maven.org/maven2/com/netflix/conductor/conductor-server/" target="_blank" rel="noopener">mvn repository</a>下载得到。</li>
+<li>Step 2: 运行conductor<br>直接在该文件目录下执行 <code>java -jar  conductor.jar</code>便可。</li>
+<li>Add 1:后台运行jar文件 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar jarname.jar  &gt;log2.file  2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>到此系统运行所需环境已经全部搭建好了</p>
+</blockquote>
+<h2 id="2-项目部署"><a href="#2-项目部署" class="headerlink" title="2 项目部署"></a>2 项目部署</h2><p>（持续更新中……)</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">lejin</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+    <a href="/2019/09/08/categories2/" class="next-post btn btn-default" title='编写cithub碰到的问题'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            编写cithub碰到的问题</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+
+<div id="vcomments" class="valine"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+<script>
+new Valine({
+    av: AV,
+    el: '#vcomments',
+    appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+    appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+    placeholder: '说点什么吧',
+    notify: false,
+    verify: true,
+    avatar: 'mm',
+    meta: 'nick,mail'.split(','),
+    pageSize: '10',
+    path: window.location.pathname,
+    lang: 'zh-CN'.toLowerCase()
+})
+</script>
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            文章目录
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-环境搭建"><span class="toc-text">1 环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Centos7"><span class="toc-text">1.1 Centos7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-docker配置"><span class="toc-text">1.2 docker配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-mysql配置"><span class="toc-text">1.3 mysql配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-redis配置"><span class="toc-text">1.4 redis配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-jdk配置"><span class="toc-text">1.5 jdk配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-tomcat配置"><span class="toc-text">1.6 tomcat配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-conductor配置"><span class="toc-text">1.7 conductor配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-项目部署"><span class="toc-text">2 项目部署</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    访问量:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    访客数:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2019
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/app.js?rev=@@hash"></script>
+</body>
+</html>
