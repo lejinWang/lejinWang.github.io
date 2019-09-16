@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/09/16/docker/</loc>
+    
+    <lastmod>2019-09-16T13:17:11.778Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/09/08/categories2/</loc>
+    
+    <lastmod>2019-09-16T11:11:57.760Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2019-09-16T11:11:33.878Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/09/08/categories1/</loc>
     
-    <lastmod>2019-09-09T07:35:06.842Z</lastmod>
+    <lastmod>2019-09-16T11:07:04.467Z</lastmod>
     
   </url>
   
@@ -12,13 +33,6 @@
     <loc>http://yoursite.com/2019/09/07/hello-world/</loc>
     
     <lastmod>2019-09-09T02:04:28.982Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/09/08/categories2/</loc>
-    
-    <lastmod>2019-09-08T08:22:21.589Z</lastmod>
     
   </url>
   
